@@ -8,7 +8,8 @@
   export let form;
 
   let mode = false;
-  const emailAddress = "support@stocknear.com";
+  const emailAddress = "support@vrishn.com";
+  const lemonStore = import.meta.env.VITE_LEMON_SQUEEZY_STORE || "vrishn";
 
   function toggleMode() {
     mode = !mode;
@@ -44,7 +45,7 @@
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches;
       const checkoutUrl =
-        `https://stocknear.lemonsqueezy.com/checkout/buy/${subId}?` +
+        `https://${lemonStore}.lemonsqueezy.com/checkout/buy/${subId}?` +
         new URLSearchParams({
           embed: "1",
           dark: isDarkMode ? "1" : "0",
@@ -54,22 +55,22 @@
         }).toString();
 
       openLemonSqueezyUrl(checkoutUrl);
-      //goto(`https://stocknear.lemonsqueezy.com/checkout/buy/${subId}`)
+      //goto(`https://${lemonStore}.lemonsqueezy.com/checkout/buy/${subId}`)
     }
   }
 </script>
 
 <SEO
-  title="Stocknear Pricing - Pro Stock Analysis Plans & Premium Features "
+  title="Vrishn Pricing - Pro Stock Analysis Plans & Premium Features "
   description="Unlock premium stock analysis features with Stocknear Pro and Lifetime plans. Get unlimited access to advanced tools, real-time data, AI forecasts, options flow, and institutional-grade analytics. Start your free trial today."
-  keywords="stocknear pricing, stocknear pro, stock analysis subscription, premium stock tools, investment analytics pricing, trading tools subscription, stock data premium, financial analysis plans"
+  keywords="vrishn pricing, vrishn pro, stock analysis subscription, premium stock tools, investment analytics pricing, trading tools subscription, stock data premium, financial analysis plans"
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Stocknear Pricing Plans",
+    name: "Vrishn Pricing Plans",
     description:
       "Premium subscription plans for advanced stock analysis and trading tools",
-    url: "https://stocknear.com/pricing",
+    url: "https://vrishn.com/pricing",
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
@@ -77,13 +78,13 @@
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://stocknear.com",
+          item: "https://vrishn.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Pricing",
-          item: "https://stocknear.com/pricing",
+          item: "https://vrishn.com/pricing",
         },
       ],
     },

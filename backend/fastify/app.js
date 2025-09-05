@@ -22,6 +22,10 @@ const corsMiddleware = (request, reply, done) => {
     "https://www.stocknear.com",
     "http://stocknear.com",
     "http://www.stocknear.com",
+    "https://vrishn.com",
+    "https://www.vrishn.com",
+    "http://vrishn.com",
+    "http://www.vrishn.com",
   ];
 
   const origin = request?.headers?.origin;

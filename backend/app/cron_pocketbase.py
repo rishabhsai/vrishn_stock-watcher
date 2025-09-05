@@ -58,7 +58,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 def send_email(recipient, template_name='free_trial', subject=None):
 
     # Replace the placeholders with your sender email and password
-    sender_email = 'mrahimi@stocknear.com'
+    sender_email = 'support@vrishn.com'
 
     to_email = recipient # user email address
     

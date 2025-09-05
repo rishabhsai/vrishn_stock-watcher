@@ -1,4 +1,4 @@
-# StockNear Robots.txt - Optimized for SEO and Performance
+# Vrishn Robots.txt - Optimized for SEO and Performance
 User-agent: *
 Allow: /
 
@@ -64,9 +64,9 @@ Allow: /
 Crawl-delay: 2
 
 # High-priority sitemaps for better indexing
-Sitemap: https://stocknear.com/sitemap.xml
-Sitemap: https://stocknear.com/sitemap-stocks.xml
-Sitemap: https://stocknear.com/sitemap-news.xml
+Sitemap: https://vrishn.com/sitemap.xml
+Sitemap: https://vrishn.com/sitemap-stocks.xml
+Sitemap: https://vrishn.com/sitemap-news.xml
 
 # Host directive for canonical domain
-Host: https://stocknear.com
+Host: https://vrishn.com

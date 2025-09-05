@@ -63,7 +63,7 @@
     })}
   </script>
 
-  <link rel="canonical" href="https://stocknear.com/affiliate-program" />
+  <link rel="canonical" href="https://vrishn.com/affiliate-program" />
 </svelte:head>
 -->
 

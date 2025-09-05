@@ -123,9 +123,10 @@
 
   // Load GTM script in a non-blocking way
   function loadGTMScript() {
-    const GTM_ID = "GTM-NZBJ9W63";
+    const GTM_ID = import.meta.env.VITE_GTM_ID || "";
 
     // Create script element with async attribute
+    if (!GTM_ID) return;
     const script = document.createElement("script");
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
@@ -281,7 +282,7 @@
 <!-- Google Tag Manager (noscript) -->
 <noscript
   ><iframe
-    src="https://www.googletagmanager.com/ns.html?id=GTM-NZBJ9W63"
+    src="https://www.googletagmanager.com/ns.html?id={import.meta.env.VITE_GTM_ID || ''}"
     height="0"
     width="0"
     style="display:none;visibility:hidden"
@@ -329,9 +330,9 @@
                     <img
                       class="avatar w-9 sm:w-10 rounded-full"
                       src="/pwa-192x192.png"
-                      alt="Stocknear Logo"
+                      alt="Vrishn Logo"
                     />
-                    Stocknear
+                    Vrishn
                   </a>
                 </Button>
               </Sheet.Close>
@@ -1022,10 +1023,10 @@
           <img
             class="avatar w-9 3xl:w-10 rounded-full"
             src="/pwa-192x192.png"
-            alt="Stocknear Logo"
+            alt="Vrishn Logo"
           />
           <span class="text-muted dark:text-white font-semibold ml-2 text-xl"
-            >Stocknear</span
+            >Vrishn</span
           >
         </a>
 
@@ -1163,10 +1164,10 @@
                   <img
                     class="avatar w-9 3xl:w-12 rounded-full"
                     src="/pwa-192x192.png"
-                    alt="Stocknear Logo"
+                    alt="Vrishn Logo"
                   />
                   <span class="text-muted dark:text-white text-xl"
-                    >Stocknear</span
+                    >Vrishn</span
                   >
                 </a>
 

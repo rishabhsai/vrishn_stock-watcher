@@ -246,7 +246,11 @@ app = FastAPI(docs_url=None, redoc_url=None, openapi_url = None)
 limiter = Limiter(key_func=get_remote_address)
 app.state.limiter = limiter
 
-origins = ["http://www.stocknear.com","https://www.stocknear.com","http://stocknear.com","https://stocknear.com","http://localhost:5173","http://localhost:4173","http://localhost:8000"]
+origins = [
+    "http://www.stocknear.com","https://www.stocknear.com","http://stocknear.com","https://stocknear.com",
+    "http://www.vrishn.com","https://www.vrishn.com","http://vrishn.com","https://vrishn.com",
+    "http://localhost:5173","http://localhost:4173","http://localhost:8000"
+]
 
 app.add_middleware(
     CORSMiddleware,
@@ -479,7 +483,7 @@ async def load_json_async(file_path):
 
 @app.get("/")
 async def hello_world():
-    return {"stocknear api"}
+    return {"vrishn api"}
 
 @app.on_event("shutdown")
 async def shutdown_event():
@@ -2937,7 +2941,7 @@ async def get_options_flow_stream(data: OptionsInsight, api_key: str = Security(
     
     # Agent setup for options insight
     agent = Agent(
-        name="Stocknear AI Agent",
+        name="Vrishn AI Agent",
         instructions=OPTIONS_INSIGHT_INSTRUCTION,
         model=os.getenv("FAST_CHAT_MODEL"),
         tools=[],  # No tools needed for options insight analysis
@@ -4934,7 +4938,7 @@ async def create_backtesting_strategy(user_query: str) -> dict | None:
     """Create a backtesting strategy based on user query and return the parsed strategy."""
     try:
         agent = Agent(
-            name="Stocknear AI Agent",
+            name="Vrishn AI Agent",
             instructions=BACKTESTING_INSTRUCTION,
             model=os.getenv("CHAT_MODEL"),
             tools=[],
@@ -5191,7 +5195,7 @@ async def get_data(data: ChatRequest, api_key: str = Security(get_api_key)):
   
     # Agent setup
     agent = Agent(
-        name="Stocknear AI Agent",
+        name="Vrishn AI Agent",
         instructions=CHAT_INSTRUCTION,
         model=selected_model,
         tools=selected_tools,
