@@ -8,7 +8,7 @@
 
   let tier = $page.url.searchParams.get("tier") ?? "";
   let urlValue = $page.url.searchParams.get("value");
-  const emailAddress = "support@stocknear.com";
+  const emailAddress = "support@vrishn.com";
 
   var duration = 5 * 500;
   var animationEnd = Date.now() + duration;

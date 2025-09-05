@@ -4,7 +4,7 @@
 
   export let data;
   let discordURL = import.meta.env.VITE_DISCORD_URL;
-  const emailAddress = "contact@stocknear.com";
+  const emailAddress = "contact@vrishn.com";
 </script>
 
 <SEO

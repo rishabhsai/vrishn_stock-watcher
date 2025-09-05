@@ -1,7 +1,7 @@
 <script>
   import SEO from "$lib/components/SEO.svelte";
   import ArrowLogo from "lucide-svelte/icons/move-up-right";
-  const emailAddress = "support@stocknear.com";
+  const emailAddress = "support@vrishn.com";
 </script>
 
 <SEO

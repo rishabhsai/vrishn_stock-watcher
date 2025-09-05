@@ -16,7 +16,7 @@
   let loading = false;
   let errorMessage = false;
 
-  const emailAddress = "contact@stocknear.com";
+  const emailAddress = "contact@vrishn.com";
 
   const submitMessage = () => {
     loading = true;

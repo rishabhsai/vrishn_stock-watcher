@@ -61,16 +61,16 @@
 </script>
 
 <SEO
-  title="Stocknear - Advanced Stock Analysis & Financial Data Platform"
-  description="Free advanced stock analysis, AI-powered forecasting, options flow tracking, and comprehensive financial data for all US stocks. Get real-time insights for TSLA, NVDA, AAPL and thousands more with StockNear's powerful analysis tools."
-  keywords="stocknear, stock analysis, stock forecast, tsla forecast, nvda analysis, options flow, earnings analysis, financial data, stock screener, market analysis, AI stock predictions, dark pool data, insider trading, congress trading"
+  title="Vrishn - Advanced Stock Analysis & Financial Data Platform"
+  description="Free advanced stock analysis, AI-powered forecasting, options flow tracking, and comprehensive financial data for all US stocks. Get real-time insights for TSLA, NVDA, AAPL and thousands more with Vrishn's powerful analysis tools."
+  keywords="vrishn, stock analysis, stock forecast, tsla forecast, nvda analysis, options flow, earnings analysis, financial data, stock screener, market analysis, AI stock predictions, dark pool data, insider trading, congress trading"
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "Stocknear",
+    name: "Vrishn",
     description:
       "Advanced stock analysis and financial data platform with AI-powered insights",
-    url: "https://stocknear.com",
+    url: "https://vrishn.com",
     applicationCategory: "FinanceApplication",
     operatingSystem: "Any",
     offers: {
@@ -89,8 +89,8 @@
     ],
     provider: {
       "@type": "Organization",
-      name: "Stocknear",
-      url: "https://stocknear.com",
+      name: "Vrishn",
+      url: "https://vrishn.com",
     },
   }}
 />

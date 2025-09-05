@@ -3,7 +3,7 @@
   import SEO from "$lib/components/SEO.svelte";
 
   let discordURL = import.meta.env.VITE_DISCORD_URL;
-  const emailAddress = "support@stocknear.com";
+  const emailAddress = "support@vrishn.com";
 </script>
 
 <SEO

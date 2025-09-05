@@ -78,7 +78,7 @@ export async function exportChatToPDF(messages: Message[], options: ExportOption
   const contentWidth = pageWidth - (margin * 2);
   let yPosition = margin;
 
-  // Add Stocknear branding header
+  // Add Vrishn branding header
   await addHeader(pdf, pageWidth, margin);
   yPosition = 55;
 
@@ -108,14 +108,14 @@ export async function exportChatToPDF(messages: Message[], options: ExportOption
 
 async function addHeader(pdf: jsPDF, pageWidth: number, margin: number) {
   try {
-    // Load and add the actual Stocknear logo
+    // Load and add the actual Vrishn logo
     const logoImg = new Image();
     logoImg.crossOrigin = 'anonymous';
     
     await new Promise((resolve, reject) => {
       logoImg.onload = resolve;
       logoImg.onerror = () => {
-        console.warn('Failed to load Stocknear logo, using fallback');
+        console.warn('Failed to load Vrishn logo, using fallback');
         resolve(null);
       };
       logoImg.src = '/pwa-192x192.png';
@@ -125,7 +125,7 @@ async function addHeader(pdf: jsPDF, pageWidth: number, margin: number) {
     const logoSize = 12;
     pdf.setFontSize(28);
     pdf.setFont('helvetica', 'bold');
-    pdf.setTextColor(0, 0, 0); // Black color for Stocknear
+    pdf.setTextColor(0, 0, 0); // Black color for Vrishn
     
     // Calculate vertical center alignment
     const textHeight = 28 * 0.352778; // Convert font size to mm (1 pt = 0.352778 mm)
@@ -142,7 +142,7 @@ async function addHeader(pdf: jsPDF, pageWidth: number, margin: number) {
     }
     
     // Add brand name (aligned with logo)
-    pdf.text('Stocknear', margin + logoSize + 6, textY);
+    pdf.text('Vrishn', margin + logoSize + 6, textY);
     
   } catch (error) {
     console.warn('Error loading logo:', error);
@@ -161,7 +161,7 @@ async function addHeader(pdf: jsPDF, pageWidth: number, margin: number) {
     pdf.rect(margin, logoY, logoSize, logoSize, 'F');
     
     // Add brand name
-    pdf.text('Stocknear', margin + logoSize + 6, textY);
+    pdf.text('Vrishn', margin + logoSize + 6, textY);
   }
   
   // Add a subtle line under the header
@@ -185,7 +185,7 @@ async function addMessage(
   pdf.setFont('helvetica', 'bold');
   pdf.setTextColor(0, 0, 0); // Black for both user and assistant
   
-  const roleLabel = isUser ? 'You' : 'Stocknear AI';
+  const roleLabel = isUser ? 'You' : 'Vrishn AI';
   pdf.text(roleLabel, margin, yPosition);
   yPosition += 8;
 
@@ -255,7 +255,7 @@ export async function downloadChatPDF(messages: Message[], filename?: string) {
   try {
     const pdf = await exportChatToPDF(messages, {});
     
-    const finalFilename = filename || `stocknear-chat-${new Date().toISOString().split('T')[0]}.pdf`;
+    const finalFilename = filename || `vrishn-chat-${new Date().toISOString().split('T')[0]}.pdf`;
     pdf.save(finalFilename);
     
     return true;

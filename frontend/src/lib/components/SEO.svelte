@@ -3,22 +3,22 @@
 
   export let title = "Advanced Stock Analysis & Financial Data Platform";
   export let description =
-    "Stocknear gives you realtime market insights for your stock analysis with up-to-date financials, news, and interactive charts.";
+    "Vrishn gives you realtime market insights for your stock analysis with up-to-date financials, news, and interactive charts.";
   export let keywords: string | null = null;
   export let image: string | null = null;
   export let structuredData: any = null;
   export let type: string = "website";
   export let article: any = null;
 
-  const baseURL = "https://stocknear.com";
+  const baseURL = "https://vrishn.com";
   const canonical = baseURL + ($page?.url?.pathname || "");
 
-  const siteName = "Stocknear";
-  const twitterHandle = "@stocknear";
+  const siteName = "Vrishn";
+  const twitterHandle = "@vrishn";
 
   // Default keywords for stock analysis
   const defaultKeywords =
-    "stocknear, stock analysis, stock forecast, financial data, options flow, earnings analysis, market insights, AI stock predictions";
+    "vrishn, stock analysis, stock forecast, financial data, options flow, earnings analysis, market insights, AI stock predictions";
   const finalKeywords = keywords || defaultKeywords;
 </script>
 

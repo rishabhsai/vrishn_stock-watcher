@@ -2,7 +2,7 @@
   import { page } from "$app/stores";
   //import { trackError,trackButtonClick } from '$lib/mixpanel';
 
-  const emailAddress = "support@stocknear.com";
+  const emailAddress = "support@vrishn.com";
 </script>
 
 <section class="min-h-screen pt-6">

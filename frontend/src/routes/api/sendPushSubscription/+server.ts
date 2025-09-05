@@ -11,7 +11,7 @@ const VAPID_PUBLIC_KEY = import.meta.env.VITE_VAPID_PUBLIC_KEY;
 const VAPID_PRIVATE_KEY = import.meta.env.VITE_VAPID_PRIVATE_KEY;
 
 webPush.setVapidDetails(
-  'mailto:contact@stocknear.com',
+  'mailto:contact@vrishn.com',
   VAPID_PUBLIC_KEY,
   VAPID_PRIVATE_KEY
 );

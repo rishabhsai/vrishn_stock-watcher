@@ -69,7 +69,7 @@
 
 <SEO
   title="Affiliate Program - Earn Up to 20% Commission "
-  description="Join Stocknear's Affiliate Program and earn up to 20% commission on every sale. Refer customers and start earning cash today!"
+  description="Join Vrishn's Affiliate Program and earn up to 20% commission on every sale. Refer customers and start earning cash today!"
 />
 
 <main class="text-muted dark:text-white w-full">
@@ -81,7 +81,7 @@
         <img
           class="m-auto w-20 sm:w-24 rounded-full mb-5"
           src="/pwa-192x192.png"
-          alt="Stocknear Logo"
+          alt="Vrishn Logo"
           loading="lazy"
         />
         <h1 class="mt-1 text-4xl font-bold sm:text-5xl lg:text-6xl">
@@ -90,7 +90,7 @@
         <p
           class="mx-auto mt-5 max-w-3xl text-xl leading-normal md:mt-7 md:text-2xl"
         >
-          Become a Stocknear affiliate today &amp; earn <strong>20%</strong> on each
+          Become a Vrishn affiliate today &amp; earn <strong>20%</strong> on each
           sale!
         </p>
         <p
@@ -100,7 +100,7 @@
         </p>
         <div class="mb-8">
           <a
-            href="https://affiliates.lemonsqueezy.com/programs/stocknear"
+            href={`https://affiliates.lemonsqueezy.com/programs/${import.meta.env.VITE_LEMON_SQUEEZY_AFFILIATE_SLUG || 'vrishn'}`}
             rel="noopener noreferrer"
             target="_blank"
             class="text-white bg-blue-600 sm:hover:bg-blue-700 ease-out duration-50 px-5 py-3 text-lg font-semibold rounded"
@@ -420,7 +420,7 @@
         <h2 class="text-2xl font-semibold">Start earning cash today!</h2>
         <div class="mt-8">
           <a
-            href="https://affiliates.lemonsqueezy.com/programs/stocknear"
+            href={`https://affiliates.lemonsqueezy.com/programs/${import.meta.env.VITE_LEMON_SQUEEZY_AFFILIATE_SLUG || 'vrishn'}`}
             rel="noopener noreferrer"
             target="_blank"
             class="text-white bg-blue-600 sm:hover:bg-blue-700 ease-out duration-50 px-5 py-3 text-lg font-semibold rounded"

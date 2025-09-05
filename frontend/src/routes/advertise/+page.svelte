@@ -115,7 +115,7 @@
                 <br />Email us at
                 <a
                   class="text-blue-800 dark:text-blue-400 sm:hover:text-muted dark:sm:hover:text-white sm:hover:underline font-medium"
-                  href="mailto:contact@stocknear.com">contact@stocknear.com</a
+                  href="mailto:contact@vrishn.com">contact@vrishn.com</a
                 > to discuss your advertising needs and discover how we can accelerate
                 your business growth.
               </p>

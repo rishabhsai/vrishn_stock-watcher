@@ -35,7 +35,7 @@
 
   let subscriptionData = data?.getSubscriptionData;
   let isClicked = false;
-  const emailAddress = "support@stocknear.com";
+  const emailAddress = "support@vrishn.com";
 
   const submitCancellation = () => {
     return async ({ result, update }) => {

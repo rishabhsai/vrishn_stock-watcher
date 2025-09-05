@@ -135,9 +135,9 @@
                 owner and believe that your work has been infringed, please contact
                 us at
                 <a
-                  href="mailto:contact@stocknear.com"
+                  href="mailto:contact@vrishn.com"
                   class="text-blue-800 dark:text-blue-400 sm:hover:text-muted dark:sm:hover:text-white sm:hover:underline"
-                  >contact@stocknear.com</a
+                  >contact@vrishn.com</a
                 >
                 using the subject line "Copyright Infringement" and provide a detailed
                 description of the alleged infringement.<br /><br />
@@ -166,9 +166,9 @@
                 Cancellation can be managed through the billing portal in your Account
                 Settings or by contacting us at
                 <a
-                  href="mailto:support@stocknear.com"
+                  href="mailto:support@vrishn.com"
                   class="text-blue-800 dark:text-blue-400 sm:hover:text-muted dark:sm:hover:text-white sm:hover:underline"
-                  >support@stocknear.com</a
+                  >support@vrishn.com</a
                 >.<br /><br />
                 If you are not completely satisfied with your subscription, you may
                 request a full refund within 30 days of your initial purchase. Please
@@ -254,9 +254,9 @@
                 If you notice any errors or inconsistencies, please notify us via
                 our contact form or email us directly at
                 <a
-                  href="mailto:support@stocknear.com"
+                  href="mailto:support@vrishn.com"
                   class="text-blue-800 dark:text-blue-400 sm:hover:text-muted dark:sm:hover:text-white sm:hover:underline"
-                  >support@stocknear.com</a
+                  >support@vrishn.com</a
                 >.
               </div>
 
