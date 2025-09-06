@@ -501,8 +501,55 @@ async def load_json_async(file_path):
             )
 
             return data
-    except:
+    except Exception:
+        # Fallback: build live URL from known patterns and fetch directly using FMP
+        url = await build_fallback_url(file_path)
+        if not url:
+            return None
+        try:
+            resp = await client.get(url)
+            if resp.status_code != 200:
+                return None
+            data = resp.json()
+            # Cache minimal time
+            try:
+                redis_client.set(file_path, orjson.dumps(data), ex=300)
+            except Exception:
+                pass
+            return data
+        except Exception:
+            return None
+
+async def build_fallback_url(file_path: str) -> str | None:
+    """Best-effort builder for live fetch when local JSON is missing.
+    Supports common paths: quote, historical price (max/adj), dividends, news.
+    """
+    try:
+        apikey = os.getenv('FMP_API_KEY')
+        if not apikey:
+            return None
+        # Quote: json/quote/{ticker}.json
+        if file_path.startswith('json/quote/') and file_path.endswith('.json'):
+            ticker = file_path.split('/')[-1].replace('.json','')
+            return f"https://financialmodelingprep.com/api/v3/quote/{ticker}?apikey={apikey}"
+        # Historical max: json/historical-price/max/{ticker}.json
+        if 'json/historical-price/max/' in file_path:
+            ticker = file_path.split('/')[-1].replace('.json','')
+            return f"https://financialmodelingprep.com/api/v3/historical-price-full/{ticker}?serietype=line&timeseries=3650&apikey={apikey}"
+        # Historical adj: json/historical-price/adj/{ticker}.json
+        if 'json/historical-price/adj/' in file_path:
+            ticker = file_path.split('/')[-1].replace('.json','')
+            return f"https://financialmodelingprep.com/api/v3/historical-price-full/{ticker}?serietype=line&timeseries=2000&apikey={apikey}"
+        # Dividends: json/dividends/companies/{ticker}.json
+        if 'json/dividends/companies/' in file_path:
+            ticker = file_path.split('/')[-1].replace('.json','')
+            return f"https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend/{ticker}?apikey={apikey}"
+        # Market news: json/market-news/... .json (fallback to general news)
+        if 'json/market-news/' in file_path:
+            return f"https://financialmodelingprep.com/api/v3/stock_news?limit=50&apikey={apikey}"
+    except Exception:
         return None
+    return None
 
 
 
