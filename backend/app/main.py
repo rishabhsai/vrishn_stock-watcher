@@ -147,9 +147,23 @@ def db_connection(db_name):
     conn.close()
 
 ################# Redis #################
-redis_client = redis.Redis(host='localhost', port=6380, db=0)
-redis_client.flushdb() # TECH DEBT
-caching_time = 3600*12 #Cache data for 12 hours
+DEV_MODE = os.getenv('DEV_MODE', 'true').lower() == 'true'
+try:
+  redis_client = redis.Redis(host='localhost', port=6380, db=0)
+  if not DEV_MODE:
+    redis_client.flushdb()
+  caching_time = 3600*12
+except Exception:
+  # Fallback to in-memory stub when Redis is unavailable
+  class _MemCache:
+    def __init__(self):
+      self._m = {}
+    def get(self, k):
+      return self._m.get(k)
+    def set(self, k, v, ex=None):
+      self._m[k] = v
+  redis_client = _MemCache()
+  caching_time = 0
 
 #########################################
 
@@ -206,8 +220,11 @@ with db_connection(INSTITUTE_DB) as cursor:
 #------End Institute DB------------#
 
 #------Start Stock Screener--------#
-with open(f"json/stock-screener/data.json", 'rb') as file:
-    stock_screener_data = orjson.loads(file.read())
+try:
+    with open(f"json/stock-screener/data.json", 'rb') as file:
+        stock_screener_data = orjson.loads(file.read())
+except Exception:
+    stock_screener_data = []
 
 # Convert stock_screener_data into a dictionary keyed by symbol
 stock_screener_data_dict = {item['symbol']: item for item in stock_screener_data}
@@ -269,6 +286,8 @@ fastapi_username = os.getenv('FASTAPI_USERNAME')
 fastapi_password = os.getenv('FASTAPI_PASSWORD')
 
 def get_current_username(credentials: HTTPBasicCredentials = Depends(security)):
+    if os.getenv('PUBLIC_MODE', 'false').lower() == 'true':
+        return "public"
     correct_username = secrets.compare_digest(credentials.username, fastapi_username)
     correct_password = secrets.compare_digest(credentials.password, fastapi_password)
     if not (correct_username and correct_password):
@@ -292,17 +311,23 @@ async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
     )
 
 async def get_api_key(api_key: str = Security(api_key_header)):
+    if os.getenv('PUBLIC_MODE', 'false').lower() == 'true':
+        return api_key
     if api_key != STOCKNEAR_API_KEY:
         raise HTTPException(status_code=403, detail="Could not validate credentials")
 
 
 @app.get("/docs")
-async def get_documentation(username: str = Depends(get_current_username)):
+async def get_documentation(username: str | None = Depends(lambda: None)):
+    if os.getenv('PUBLIC_MODE', 'false').lower() != 'true':
+        username = get_current_username  # type: ignore
     return get_swagger_ui_html(openapi_url="/openapi.json", title="docs")
 
 
 @app.get("/openapi.json")
-async def openapi(username: str = Depends(get_current_username)):
+async def openapi(username: str | None = Depends(lambda: None)):
+    if os.getenv('PUBLIC_MODE', 'false').lower() != 'true':
+        username = get_current_username  # type: ignore
     return get_openapi(title = "FastAPI", version="0.1.0", routes=app.routes)
 
 class TickerData(BaseModel):
