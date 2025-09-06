@@ -957,16 +957,7 @@
                   <Plus class="sm:-mr-1 sm:ml-1 h-5 w-5 inline-block" />
                 </Button>
 
-                {#if data?.user}
-                  <label
-                    class="ml-auto mr-2 whitespace-nowrap w-auto text-xs border-gray-300 font-semibold dark:font-normal dark:border-gray-600 border bg-gray-50 dark:bg-[#2A2E39] flex flex-row justify-between items-center px-3 rounded"
-                  >
-                    <div>
-                      {data?.user?.credits?.toLocaleString("en-US")}
-                      <span class="hidden sm:inline-block">Credits</span>
-                    </div>
-                  </label>
-                {/if}
+                <!-- Public mode: hide credits label -->
 
                 <button
                   on:click={() =>

@@ -227,12 +227,7 @@
     } else {
       if (event.key === "Enter" && !event.shiftKey) {
         event.preventDefault();
-        if (data?.user) {
-          createChat();
-        } else {
-          const closePopup = document.getElementById("userLogin");
-          closePopup?.dispatchEvent(new MouseEvent("click"));
-        }
+        createChat();
       }
     }
   }
@@ -244,25 +239,10 @@
 
     isLoading = true;
     /*
-    if (!["Pro", "Plus"].includes(data?.user?.tier)) {
-      toast.error("Upgrade your account to unlock this feature", {
-        style: `border-radius: 5px; background: #fff; color: #000; border-color: ${$mode === "light" ? "#F9FAFB" : "#4B5563"}; font-size: 15px;`,
-      });
-      isLoading = false;
-      return;
-    }
+    // Public mode: no tier gate
       */
 
-    if (data?.user?.credits < 2) {
-      toast.error(
-        `Insufficient credits. Your current balance is ${data?.user?.credits}.`,
-        {
-          style: `border-radius: 5px; background: #fff; color: #000; border-color: ${$mode === "light" ? "#F9FAFB" : "#4B5563"}; font-size: 15px;`,
-        },
-      );
-      isLoading = false;
-      return;
-    }
+    // Public mode: allow anonymous usage without credits
 
     if (editorText?.trim()?.length > 0) {
       const response = await fetch("/api/create-chat", {
@@ -692,8 +672,7 @@
                       {/if}
 
                       <label
-                        for={!data?.user ? "userLogin" : ""}
-                        on:click={() => (data?.user ? createChat() : "")}
+                        on:click={() => createChat()}
                         class="{editorText?.trim()?.length > 0
                           ? 'cursor-pointer'
                           : 'cursor-not-allowed opacity-60'} py-2 text-white dark:text-black text-[1rem] rounded border border-gray-300 dark:border-gray-800 bg-black dark:bg-white px-3 transition-colors duration-200"
@@ -877,7 +856,7 @@
               {/each}
             </div>
           </div>
-        {:else if !data?.user}
+        {:else if false}
           <div class="mx-auto w-full max-w-[850px]">
             <h2
               class="text-lg sm:text-xl text-start w-full font-semibold flex flex-row items-center"
@@ -1000,7 +979,7 @@
   </div>
 </dialog>
 
-{#await import("$lib/components/LoginPopup.svelte") then { default: Comp }}
+{#await Promise.resolve({ default: null }) then { default: Comp }}
   <svelte:component this={Comp} {data} />
 {/await}
 
